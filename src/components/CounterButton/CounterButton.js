@@ -5,9 +5,14 @@ class CounterButton extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      count: 0,
-    };
+    this.state = {};
+
+    // Set initial value for count
+    if (Number.isInteger(props.initialCount)) {
+      this.state.count = props.initialCount;
+    } else {
+      this.state.count = 0;
+    }
 
     this.increment = this.increment.bind(this);
   }
