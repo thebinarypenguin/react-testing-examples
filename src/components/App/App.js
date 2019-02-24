@@ -1,4 +1,5 @@
 import React from 'react';
+import CounterButton from '../CounterButton/CounterButton';
 
 class App extends React.Component {
 
@@ -7,7 +8,7 @@ class App extends React.Component {
     return (
       <main>
         <h1>React Testing Examples</h1>
-        <p>IOU one button</p>
+        <CounterButton />
       </main>
     );
   }
