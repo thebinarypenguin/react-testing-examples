@@ -32,28 +32,31 @@ describe('Smoke Tests', () => {
 /*
  * Snapshot Tests
  * Does the component render the correct UI
+ *
+ * Use the "react-test-renderer" library to render the component into a JSON
+ * format called a snapshot. Assert that the current snapshot matches the
+ * previously created "correct" snapshot.
+ *
+ * The first time you run the test you won't have anything to compare to, but
+ * jest will prompt you with options to create/delete/update snapshots
+ * automatically.
+ *
+ * The snapshots are created in a directory named "__snapshots__" and should be
+ * committed to your repository.
  */
 describe('Snapshot Tests', () => {
 
   it('renders the UI as expected when no props are provided', () => {
 
-    // Render the component and convert it's output into a JSON format called a snapshot.
-    // These snapshot files are created in the directory ./__snapshots__
     const tree = renderer.create(<CounterButton />).toJSON();
 
-    // Assert the current snapshot matches the correct snapshot.
-    // The very first time you run this test you won't have anything to compare to
     expect(tree).toMatchSnapshot();
   });
 
   it('renders the UI as expected when "initialCount" is provided', () => {
 
-    // Render the component and convert it's output into a JSON format called a snapshot.
-    // These snapshot files are created in the directory ./__snapshots__
     const tree = renderer.create(<CounterButton initialCount={42} />).toJSON();
 
-    // Assert the current snapshot matches the correct snapshot.
-    // The very first time you run this test you won't have anything to compare to
     expect(tree).toMatchSnapshot();
   });
 })
